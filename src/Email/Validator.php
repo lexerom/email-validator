@@ -75,7 +75,7 @@ class Validator
         if (is_string($input)) {
             $email = new Email($input);
         } elseif (!($input instanceof Email)) {
-            throw new \InvalidArgumentException("Input param must instance of string or Email.");
+            throw new \InvalidArgumentException("Input param must be instance of string or Email.");
         } else {
             $email = $input;
         }
