@@ -49,8 +49,8 @@ class EmailValidatorTest extends TestCase
             'tttjg8ourlkt43jjhergljfhghslhgfjkhdfdgdguuuuuuiiiiqweqweqweqweqweqweqweqweqweetgggggwrtrett' .
             'tjg8ourlkt43jjhergljfhghslhgfjkhdfdgdguuuuuuiiiiqweqweqweqweqweqweqweqweqweetgggggw.com';
         $invalidDomainLength = strlen($longDomain);
-        $this->assertFalse($this->validator->validate(
-            self::LOCAL_VALID . '@' . $longDomain),
+        $this->assertFalse(
+            $this->validator->validate(self::LOCAL_VALID . '@' . $longDomain),
             'Domain length assertion. Length: ' . $invalidDomainLength);
         $this->assertFalse($this->validator->validate(self::LOCAL_VALID . '@' . self::DOMAIN_INVALID));
         $this->assertFalse($this->validator->validate(self::LOCAL_INVALID . '@' . self::DOMAIN_INVALID));
