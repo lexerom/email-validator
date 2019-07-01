@@ -75,9 +75,11 @@ class EmailValidatorTest extends TestCase
 
     public function testValidator(): void
     {
-        $this->validator->addRule(new Dns())
-            ->addRule(new DomainName())
-            ->addRule(new LocalPart());
+        $this->validator->addRules([
+            new Dns(),
+            new DomainName(),
+            new LocalPart()
+        ]);
 
         $rules = $this->validator->getRules();
 

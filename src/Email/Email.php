@@ -32,12 +32,11 @@ class Email
 
     /**
      * @param string $email
-     * @return self
+     * @return void
      */
-    public function setEmail(string $email): self
+    public function setEmail(string $email): void
     {
         $this->email = $email;
-        return $this;
     }
 
     /**
@@ -77,6 +76,6 @@ class Email
             throw new \InvalidArgumentException(sprintf("Invalid email provided: %s", $email));
         }
 
-        list($this->localPart, $this->domain) = $parts;
+        [$this->localPart, $this->domain] = $parts;
     }
 }

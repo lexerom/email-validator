@@ -15,13 +15,7 @@ class Validator
      */
     public function __construct(array $rules = [])
     {
-        foreach ($rules as $rule) {
-            if ($rule instanceof RuleInterface) {
-                $this->rules[] = $rule;
-            }
-        }
-
-        $this->sortRulesByPriority();
+        $this->addRules($rules);
     }
 
     /**
@@ -34,17 +28,26 @@ class Validator
 
     /**
      * @param RuleInterface $rule
-     * @return self
+     * @return void
      */
-    public function addRule(RuleInterface $rule): self
+    public function addRule(RuleInterface $rule): void
     {
         //Do not check if this rule exists, because the same rule can have different settings
         //Basically 2 different rules in the end.
         $this->rules[] = $rule;
 
         $this->sortRulesByPriority();
+    }
 
-        return $this;
+    public function addRules(array $rules): void
+    {
+        foreach ($rules as $rule) {
+            if ($rule instanceof RuleInterface) {
+                $this->rules[] = $rule;
+            }
+        }
+
+        $this->sortRulesByPriority();
     }
 
     /**
