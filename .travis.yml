@@ -1,6 +1,4 @@
 language: php
 php:
     - 7.2
-    - 7.3
-
-script: phpunit --configuration phpunit.xml --coverage-text
+    - 7.3ч
